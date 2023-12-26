@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int lock_price = 45;
+    int stock_price = 30;
+    int barrel_price = 25;
+
+    double commission_level_1 = 0.10;
+    double commission_level_2 = 0.15;
+    double commission_level_3 = 0.20;
+
+    int locks_sold, stocks_sold, barrels_sold;
+    cout << "Enter the number of locks sold: ";
+    cin >> locks_sold;
+    cout << "Enter the number of stocks sold: ";
+    cin >> stocks_sold;
+    cout << "Enter the number of barrels sold: ";
+    cin >> barrels_sold;
+
+    int total_sales = (locks_sold * lock_price) + (stocks_sold * stock_price) + (barrels_sold * barrel_price);
+    cout << "The total sales for the salesperson is: $" << total_sales << endl;
+
+    double commission;
+    if (total_sales <= 1000) {
+        commission = total_sales * commission_level_1;
+    } else if (total_sales <= 1800) {
+        commission = (1000 * commission_level_1) + ((total_sales - 1000) * commission_level_2);
+    } else {
+        commission = (1000 * commission_level_1) + (800 * commission_level_2) + ((total_sales - 1800) * commission_level_3);
+    }
+    
+    cout << "The total commission for the salesperson is: $" << commission << endl;
+
+    return 0;
+}

@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cout << "Enter 3 integers which are sides of a triangle: ";
+    cin >> a >> b >> c;
+
+    cout << "a=" << a << ", b=" << b << ", c=" << c << endl;
+
+
+    bool isTriangle = false;
+    if (a < b + c && b < a + c && c < a + b) {
+        isTriangle = true;
+    }
+
+    if (isTriangle) {
+        if (a == b && b == c) {
+            cout << "Equilateral triangle" << endl;
+        } else if (a != b && a != c && b != c) {
+            cout << "Scalene triangle" << endl;
+        } else {
+            cout << "Isosceles triangle" << endl;
+        }
+    } else {
+        cout << "Not a triangle" << endl;
+    }
+
+    return 0;
+}
